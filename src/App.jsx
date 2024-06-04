@@ -2,9 +2,9 @@
 function App() {
   return (
     <div>
-      Приложение
+      Приложение It's fucking Work!
     </div>
   )
 }
 
-export default App;
+export default App
