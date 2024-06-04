@@ -1,9 +1,16 @@
+import { Routes, Route } from "react-router-dom"
+import { MainPage } from "./pages"
+import { NotFoundPage } from "./pages"
+import { Page } from './components'
 
 function App() {
   return (
-    <div>
-      Приложение It's fucking Work!
-    </div>
+    <Page>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Page>
   )
 }
 
