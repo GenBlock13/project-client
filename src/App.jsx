@@ -1,16 +1,20 @@
 import { Routes, Route } from "react-router-dom"
 import { MainPage } from "./pages"
 import { NotFoundPage } from "./pages"
-import { Page } from './components'
+import { Navbar, Page } from './components'
+
 
 function App() {
   return (
+    <>
+    <Navbar />
     <Page>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Page>
+    </>
   )
 }
 
