@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { classNames } from '../../../utils/classNames'
 import cls from './Modal.module.scss'
-import { Portal } from '../Portal/Portal'
+import { Portal } from '../../Portal/Portal'
 import { Button, buttonType } from '../../'
 import { ReactComponent as CloseSvg } from '../../../assets/close.svg'
 
