@@ -1,12 +1,13 @@
 import { Modal } from "../ui/Modal/Modal"
+import { AuthForm } from '../AuthForm/AuthForm'
 
-export const AuthModal = ({ isOpen, onClose}) => {
+export const AuthModal = ({ formType, isOpen, onClose}) => {
     return (
         <Modal
             isOpen={isOpen}
             onClose={onClose}
             >
-                <div>Форма Регистрации</div>
+                <AuthForm formType={formType} />
             </Modal>
     )
 }
