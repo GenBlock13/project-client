@@ -4,12 +4,14 @@ import { ReactComponent as MailSvg } from '../../assets/mail.svg'
 import { ReactComponent as PassSvg } from '../../assets/pass.svg'
 import { ReactComponent as UserSvg } from '../../assets/user.svg'
 import cls from './Auth.module.scss'
+import { useStore } from '../../store/StoreProvider'
 
 export const AuthForm = ({ formType }) => {
 
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const { authStore } = useStore()
 
     const onUsernameChange = (value) => {
         setUsername(value)
@@ -19,6 +21,14 @@ export const AuthForm = ({ formType }) => {
     }
     const onPasswordChange = (value) => {
         setPassword(value)
+    }
+
+    const registerHandler = () => {
+        authStore.registration(username, email, password)
+    }
+
+    const loginHandler = () => {
+        authStore.login(email, password)
     }
 
     return (<form className={cls.form}>
@@ -47,6 +57,7 @@ export const AuthForm = ({ formType }) => {
                     placeholder='Введите пароль'
                 />
                 <Button
+                    onClick={registerHandler}
                     fullWidth
                     variant={buttonType.GRADIENT}
                 >Зарегистрироваться</Button>
@@ -70,6 +81,7 @@ export const AuthForm = ({ formType }) => {
                     placeholder='Введите пароль'
                 />
                 <Button
+                    onClick={loginHandler}
                     fullWidth
                     variant={buttonType.GRADIENT}
                 >Войти</Button>
