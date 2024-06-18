@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react'
 import { Container, Menu, Button, AuthModal, buttonType } from "../"
 import cls from './Navbar.module.scss'
 import { observer } from "mobx-react-lite"
@@ -20,10 +20,6 @@ export const Navbar = observer(() => {
         setIsAuthModal(false)
     }
 
-    const onShowModal = () => {
-        setIsAuthModal(true)
-    }
-
     const onShowModalLogin = () => {
         setIsAuthModal(true)
         setFormType('login')
@@ -41,7 +37,7 @@ export const Navbar = observer(() => {
     return (
         <header className={cls.navbar}>
             <Container>
-                <div className={cls.navbar}>
+                <div className={cls.navbarInner}>
                     <Menu />
                     <div className={cls.btns}>
                         {authStore.isAuth
