@@ -1,6 +1,6 @@
 import { Section, Text } from '../'
 import cls from './Intro.module.scss'
-import { ReactComponent as RamaSvg } from '../../assets/rama.svg'
+import { ReactComponent as RamaSvg } from '../../assets/emblem.svg'
 
 export const Intro = () => {
   return (
