@@ -2,3 +2,19 @@
     display: flex;
     height: 100%;
 }
+
+@media (max-width: 820px) {
+    .nav {
+        flex-direction: column;
+        position: absolute;
+        height: 120px;
+        top: var(--navbar-height);
+        left: 0;
+        background-color: rgba(21, 20, 21, 0.7);
+        padding: 12px 12px;
+        border-radius: 0 0 120px 0;
+    }
+    .hidden {
+        display: none;
+    }
+}
