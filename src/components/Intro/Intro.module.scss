@@ -1,0 +1,30 @@
+.intro {
+    background: url('../../assets/bg.jpg');
+    background-size: cover;
+    display: flex;
+}
+
+.introInner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 48px;
+    color: var(--inverted-text-color);
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+@media (max-width: 520px) {
+    svg {
+        max-width: 112px;
+    }
+    .title {
+        gap: 12px;
+    }
+}
