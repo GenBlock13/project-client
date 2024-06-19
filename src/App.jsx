@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom"
-import { MainPage } from "./pages"
-import { NotFoundPage } from "./pages"
+import { MainPage, NotFoundPage, AddPlacePage } from "./pages"
 import { Navbar, Page } from './components'
 import { useEffect } from 'react'
 import { useStore } from './store/StoreProvider'
@@ -27,6 +26,7 @@ function App() {
     <Page>
       <Routes>
         <Route path="/" element={<MainPage />} />
+        <Route path="/add-place" element={<AddPlacePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Page>

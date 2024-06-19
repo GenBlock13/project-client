@@ -10,7 +10,7 @@ export const Intro = () => {
           <RamaSvg />
           <Text color='white' title="Раменское" size='xl' align='center' />
         </div>
-        <Text color='gray' className={cls.subtitle} title="Основан в 1628 году" size='l' align='center' />
+        <Text color='gray' title="Основан в 1628 году" size='l' align='center' />
       </div>
     </Section>
   )
