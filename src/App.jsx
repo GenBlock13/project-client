@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 import { MainPage, NotFoundPage, AddPlacePage, PlacePage } from "./pages"
-import { Navbar, Page, ProtectedRoute, Footer } from './components'
+import { Navbar, Page, ProtectedRoute, Footer, Loader } from './components'
 import { useEffect } from 'react'
 import { useStore } from './store/StoreProvider'
 import { observer } from 'mobx-react-lite'
@@ -18,7 +18,7 @@ function App() {
   }, [authStore])
 
   if (authStore.isLoading) {
-    return <div>Loading..</div>
+    return <Loader />
   }
 
   const isAllowedAdmin = authStore.user.role === 'ADMIN' || localStorage.getItem('roleAdmin')
