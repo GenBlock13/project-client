@@ -32,6 +32,7 @@ function App() {
         <Route path="/places/:placeId" element={<PlacePage />} />
         <Route element={<ProtectedRoute isAllowed={isAllowedAdmin} />} >
         <Route path="/add-place" element={<AddPlacePage />} />
+        <Route path="/places/:id/edit" element={<AddPlacePage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
