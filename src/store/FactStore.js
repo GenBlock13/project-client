@@ -1,43 +1,43 @@
 import { makeAutoObservable } from 'mobx'
-import { PlaceService } from '../services/PlaceService'
+import { FactService } from '../services/FactService'
 import { errorsHandler } from '../utils/errorsHandler'
 
-
-export class PlaceStore {
-  places = []
+export class FactStore {
+  facts = []
   isLoading = false
 
   constructor() {
     makeAutoObservable(this)
   }
 
-  setPlaces(place) {
-    this.places.push(place)
+  setFacts(fact) {
+    this.facts.push(fact)
   }
 
   setLoading(bool) {
     this.isLoading = bool
   }
 
-  async createPlace(title, text, gallery, thumbnail) {
+  // метод для создания факта
+  async createFact(title, text, img) {
     try {
-      const response = await PlaceService.createPlace(
+      const response = await FactService.createFact(
         title,
         text,
-        gallery,
-        thumbnail
+        img
       )
       console.log(response)
-      this.setPlaces(response.data.place)
+      this.setFacts(response.data.fact)
     } catch (e) {
       return errorsHandler(e.response.data)
     }
   }
 
-  async getPlaces() {
+  // получить все факты
+  async getFacts() {
     try {
       this.setLoading(true)
-      const response = await PlaceService.getPlaces()
+      const response = await FactService.getFacts()
       return response.data
     } catch (e) {
       console.log(e)
@@ -46,10 +46,11 @@ export class PlaceStore {
     }
   }
 
-  async getPlaceById(id) {
+  // получить факт
+  async getFactById(id) {
     try {
       this.setLoading(true)
-      const response = await PlaceService.getPlace(id)
+      const response = await FactService.getFact(id)
       return response.data
     } catch (e) {
       console.log(e)
@@ -58,9 +59,10 @@ export class PlaceStore {
     }
   }
 
-  async deletePlaceById(id) {
+  // удалить факт
+  async deleteFactById(id) {
     try {
-      const response = await PlaceService.deletePlace(id)
+      const response = await FactService.deleteFact(id)
       return response.data
     } catch (e) {
       console.log(e)
@@ -69,14 +71,14 @@ export class PlaceStore {
     }
   }
 
-  async updatePlace(placeId, title, text, gallery, thumbnail) {
+  // изменить факт
+  async updateFact(id, title, text, img) {
     try {
-      const response = await PlaceService.updatePlace(
-        placeId,
+      const response = await FactService.updateFact(
+        id,
         title,
         text,
-        gallery,
-        thumbnail
+        img
       )
       return response.data
     } catch (e) {

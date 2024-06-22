@@ -1,14 +1,22 @@
 import { createContext, useContext } from "react"
 import { AuthStore } from "./AuthStore"
 import { PlaceStore } from "./PlaceStore"
+import { FactStore } from "./FactStore"
+import { CommentStore } from "./CommentStore"
 
 const authStore = new AuthStore()
 
 const placeStore = new PlaceStore()
 
+const factStore = new FactStore()
+
+const commentStore = new CommentStore()
+
 const stores = {
     authStore,
-    placeStore
+    placeStore,
+    factStore, 
+    commentStore
 }
 
 const Context = createContext({...stores})
